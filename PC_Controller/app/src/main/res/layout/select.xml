@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/holo_blue_dark"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/keyboard"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/mouse"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/mouse"
+            android:layout_marginTop="109dp"
+            android:text="KEYBOARD"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/mouse"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/keyboard"
+            android:layout_centerHorizontal="true"
+            android:text="MOUSE"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/joystick"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/screenshot"
+            android:layout_alignStart="@+id/screenshot"
+            android:layout_below="@+id/screenshot"
+            android:text="JOYSTICK"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/touch"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/joystick"
+            android:layout_alignStart="@+id/joystick"
+            android:layout_below="@+id/joystick"
+            android:text="TOUCH"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/screenshot"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mouse"
+            android:layout_centerHorizontal="true"
+            android:text="SCREENSHOT"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/filetransfer"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/touch"
+            android:layout_alignRight="@+id/touch"
+            android:layout_below="@+id/touch"
+            android:text="FILE TRANSFER"
+            android:textSize="30sp" />
+    </RelativeLayout>
+</LinearLayout>

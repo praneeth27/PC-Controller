@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
+    tools:context="com.example.saipraneethreddy.pc_controller.connect">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="71dp"
+            android:text="CONNECTION MODE"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/wifi"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
+            android:text="WiFi"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/bluetooth"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_alignLeft="@+id/wifi"
+            android:layout_alignStart="@+id/wifi"
+            android:layout_below="@+id/wifi"
+            android:text="BLUETOOTH"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/ipfield"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/bluetooth"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="46dp"
+            android:background="?attr/colorButtonNormal"
+            android:ems="10"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/ip_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ipfield"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClick"
+            android:text="CONNECT"
+            android:textSize="24sp"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+</LinearLayout>
