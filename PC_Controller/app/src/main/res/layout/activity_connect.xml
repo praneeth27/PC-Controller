@@ -70,6 +70,16 @@
             android:text="CONNECT"
             android:textSize="24sp"
             android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/mac_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ipfield"
+            android:layout_centerHorizontal="true"
+            android:text="CONNECT"
+            android:textSize="24sp"
+            android:visibility="invisible" />
     </RelativeLayout>
 
 </LinearLayout>

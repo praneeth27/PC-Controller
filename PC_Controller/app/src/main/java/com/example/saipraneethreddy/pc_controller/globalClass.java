@@ -12,4 +12,5 @@ import java.net.Socket;
 public class globalClass extends Application{
     public BluetoothSocket b_sock;
     public Socket sock;
+    public boolean mode;
 }

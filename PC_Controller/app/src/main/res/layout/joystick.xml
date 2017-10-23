@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/joy"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/joy_O"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="84dp"
+            android:layout_marginRight="84dp"
+            android:layout_marginTop="61dp"
+            android:text="O" />
+
+        <Button
+            android:id="@+id/joy_X"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="X"
+            android:layout_below="@+id/joy_O"
+            android:layout_toLeftOf="@+id/joy_O"
+            android:layout_toStartOf="@+id/joy_O" />
+
+        <Button
+            android:id="@+id/joy_D"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/joy_X"
+            android:layout_toEndOf="@+id/joy_X"
+            android:layout_toRightOf="@+id/joy_X"
+            android:text="D" />
+
+        <Button
+            android:id="@+id/joy_T"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_above="@+id/joy_D"
+            android:layout_toEndOf="@+id/joy_D"
+            android:layout_toRightOf="@+id/joy_D"
+            android:text="T" />
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="START"
+            android:layout_below="@+id/joy_D"
+            android:layout_toLeftOf="@+id/joy_X"
+            android:layout_toStartOf="@+id/joy_X"
+            android:layout_marginRight="125dp"
+            android:layout_marginEnd="125dp" />
+
+        <Button
+            android:id="@+id/select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/start"
+            android:layout_marginEnd="65dp"
+            android:layout_marginRight="65dp"
+            android:layout_toLeftOf="@+id/joy_D"
+            android:layout_toStartOf="@+id/joy_D"
+            android:text="SELECT" />
+
+        <Button
+            android:id="@+id/right_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="R1" />
+
+        <Button
+            android:id="@+id/left_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/right_1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="L1" />
+
+        <TextView
+            android:id="@+id/analog"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="19dp"
+            android:layout_marginRight="19dp"
+            android:layout_toLeftOf="@+id/start"
+            android:layout_toStartOf="@+id/start" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@android:drawable/ic_notification_overlay"
+            android:layout_marginRight="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_alignTop="@+id/joy_X"
+            android:layout_alignRight="@+id/analog"
+            android:layout_alignEnd="@+id/analog" />
+    </RelativeLayout>
+
+</LinearLayout>

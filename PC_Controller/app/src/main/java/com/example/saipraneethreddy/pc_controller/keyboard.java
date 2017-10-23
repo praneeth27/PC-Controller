@@ -40,7 +40,8 @@ public class keyboard extends Activity {
         setContentView(R.layout.keyboard);
         final globalClass gl_class = (globalClass) getApplicationContext();
         try {
-            data_out = new DataOutputStream(gl_class.sock.getOutputStream());
+            if(gl_class.mode) data_out = new DataOutputStream(gl_class.sock.getOutputStream());
+            else data_out = new DataOutputStream(gl_class.b_sock.getOutputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }

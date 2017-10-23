@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="137dp"
+            android:text="send"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/recieve"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="RECIEVE"
+            android:textSize="30sp"
+            android:layout_below="@+id/send"
+            android:layout_alignLeft="@+id/send"
+            android:layout_alignStart="@+id/send" />
+    </RelativeLayout>
+</LinearLayout>
