@@ -20,15 +20,17 @@ public class select extends Activity implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select);
-        Button bt_key, bt_mouse, bt_joy, bt_screen, bt_touch,bt_file;
+        Button bt_key, bt_mouse, bt_joy, bt_screen, bt_touch,bt_file,bt_track;
         bt_key = (Button) findViewById(R.id.keyboard);
         bt_mouse = (Button) findViewById(R.id.mouse);
         bt_joy = (Button) findViewById(R.id.joystick);
         bt_touch = (Button) findViewById(R.id.touch);
         bt_screen = (Button) findViewById(R.id.screenshot);
         bt_file = (Button) findViewById(R.id.filetransfer);
+        bt_track = (Button) findViewById(R.id.track);
         bt_file.setOnClickListener(this);
         bt_joy.setOnClickListener(this);
+        bt_track.setOnClickListener(this);
         bt_touch.setOnClickListener(this);
         bt_mouse.setOnClickListener(this);
         bt_key.setOnClickListener(this);
@@ -79,6 +81,10 @@ public class select extends Activity implements View.OnClickListener {
         }
         else if(v.getId()==R.id.filetransfer){
             Intent key_activity = new Intent(getApplicationContext(), file.class);
+            startActivity(key_activity);
+        }
+        else if(v.getId()==R.id.track){
+            Intent key_activity = new Intent(getApplicationContext(), track.class);
             startActivity(key_activity);
         }
     }

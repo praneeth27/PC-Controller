@@ -13,13 +13,10 @@ import android.widget.EditText;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-/**
- * Created by sai praneeth reddy on 14-10-2017.
- */
-
 public class keyboard extends Activity {
     EditText typer;
     DataOutputStream data_out;
+    int length;
     @Override
     public boolean onKeyDown(int keycode,KeyEvent event) {
         if ((keycode == android.view.KeyEvent.KEYCODE_BACK)) {
@@ -40,8 +37,7 @@ public class keyboard extends Activity {
         setContentView(R.layout.keyboard);
         final globalClass gl_class = (globalClass) getApplicationContext();
         try {
-            if(gl_class.mode) data_out = new DataOutputStream(gl_class.sock.getOutputStream());
-            else data_out = new DataOutputStream(gl_class.b_sock.getOutputStream());
+            data_out = new DataOutputStream(gl_class.sock.getOutputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -62,24 +58,37 @@ public class keyboard extends Activity {
         typer.addTextChangedListener(new TextWatcher(){
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count){
-                if(before - s.length() == 1) {
-                    try{data_out.writeUTF("backspace");}
-                    catch(Exception e){e.printStackTrace();}
-                }
-                else if(before == s.length()){
-                    try{data_out.writeUTF("space");}
-                    catch(Exception e){e.printStackTrace();}
+                if(s.length()<length){
+                    try {
+                        data_out.writeUTF("backspace");
+                        data_out.flush();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 else {
-                    char key = s.charAt(s.length()-1);
-                    String keyStr = Character.toString(key);
-                    try{data_out.writeUTF(keyStr);}
-                    catch(Exception e){e.printStackTrace();}
+                    char key = s.charAt(s.length() - 1);
+                    if(key=='\n'){
+                        try {
+                            data_out.writeUTF("enter");
+                            data_out.flush();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    else {
+                        String keyStr = Character.toString(key);
+                        try {
+                            data_out.writeUTF(keyStr);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
-
             }
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                length=s.length();
             }
             @Override
             public void afterTextChanged(Editable s) {

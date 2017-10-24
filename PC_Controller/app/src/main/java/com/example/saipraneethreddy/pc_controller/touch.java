@@ -4,25 +4,28 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.view.GestureDetectorCompat;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 
 /**
  * Created by sai praneeth reddy on 14-10-2017.
  */
 
-public class touch extends Activity {
+public class touch extends Activity implements GestureDetector.OnGestureListener,
+        GestureDetector.OnDoubleTapListener{
     DataInputStream data_in;
     DataOutputStream data_out;
+    GestureDetectorCompat mDetector;
     @Override
     public boolean onKeyDown(int keycode,KeyEvent event) {
         if ((keycode == android.view.KeyEvent.KEYCODE_BACK)) {
@@ -37,11 +40,37 @@ public class touch extends Activity {
         }
         return true;
     }
+    private class display extends AsyncTask<String,Integer,Bitmap>{
+        private final WeakReference<ImageView> ref;
+        public display(ImageView v){
+            ref = new WeakReference<>(v);
+        }
+        @Override
+        protected Bitmap doInBackground(String... params){
+            try {
+                int Arrlength = data_in.readInt();
+                byte[] msg = new byte[Arrlength];
+                data_in.readFully(msg, 0, Arrlength);
+                Bitmap bmp = BitmapFactory.decodeByteArray(msg, 0, Arrlength);
+                return bmp;
+            }
+            catch(Exception e){e.printStackTrace();return null;
+            }
+        }
+        @Override
+        protected void onPostExecute(Bitmap bmp) {
+            super.onPostExecute(bmp);
+            ImageView v = ref.get();
+            v.setImageBitmap(Bitmap.createScaledBitmap(bmp, 576*4, 320*4, false));
+        }
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.touch2);
         setContentView(R.layout.touch);
+        mDetector = new GestureDetectorCompat(this,this);
+        mDetector.setOnDoubleTapListener(this);
         final globalClass gl_class = (globalClass) getApplicationContext();
         try {
             if(gl_class.mode) {
@@ -57,78 +86,105 @@ public class touch extends Activity {
         }
         try{
             data_out.writeUTF("touch");
-
-
-            data_out.writeUTF("touch");
             ImageView image = (ImageView) findViewById(R.id.touchscreen);
-            AnimationDrawable anim = new AnimationDrawable();
-            for(int i = 0;i<4;i++){
-                int Arrlength = data_in.readInt();
-                byte[] msg = new byte[Arrlength];
-                data_out.writeUTF("1");
-                data_in.readFully(msg,0,Arrlength);
-                Bitmap bmp = BitmapFactory.decodeByteArray(msg, 0, Arrlength);
-                Drawable draw = new BitmapDrawable(getResources(), bmp);
-                anim.addFrame(draw,5000);
-                if(i == 0) {
-
-                    image.setBackgroundDrawable(anim);
-                    anim.start();
-                }
-                Toast.makeText(getApplicationContext(),Integer.toString(Arrlength), Toast.LENGTH_SHORT).show();
-                data_out.writeUTF("1");
-            }
-            /*
-            int Arrlength = data_in.readInt();
-            byte[] msg = new byte[Arrlength];
-            data_out.writeUTF("1");
-            data_in.readFully(msg,0,Arrlength);
-            Bitmap bmp = BitmapFactory.decodeByteArray(msg, 0, Arrlength);
-            image.setImageBitmap(Bitmap.createScaledBitmap(bmp, 576*4, 320*4, false));
-            data_out.writeUTF("1");
-
-            int Arrlength2 = data_in.readInt();
-            byte[] msg2 = new byte[Arrlength2];
-            data_out.writeUTF("1");
-            data_in.readFully(msg2,0,Arrlength2);
-            Bitmap bmp2 = BitmapFactory.decodeByteArray(msg, 0, Arrlength);
-            image.setImageBitmap(Bitmap.createScaledBitmap(bmp2, 576*4, 320*4, false));
-
-
-            //RelativeLayout layout = (RelativeLayout) findViewById(R.id.imLayout);
-
-            while(true) {
-                int Arrlength = data_in.readInt();
-                byte[] msg = new byte[Arrlength];
-                data_out.writeUTF("1");
-                data_in.readFully(msg,0,Arrlength);
-                Toast.makeText(getApplicationContext(),Arrlength.toString(),Toast.LENGTH_SHORT).show();
-                Bitmap bmp = BitmapFactory.decodeByteArray(msg, 0, Arrlength);
-                ImageView image = new ImageView(this);
-                image.setLayoutParams(new android.view.ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-                image.setImageBitmap(Bitmap.createScaledBitmap(bmp, 576*4, 320*4, false));
-                layout.addView(image);
-
-                if(i == 1) {
-                    File outfile = new File(path + "im1.jpg");
-                    outfile.createNewFile();
-
-                    FileOutputStream out_stream = new FileOutputStream(outfile);
-                    out_stream.write(msg, 0, Arrlength);
-                }
-                else if (i == 3){
-                    File outfile = new File(path + "im2.jpg");
-                    outfile.createNewFile();
-
-                    FileOutputStream out_stream = new FileOutputStream(outfile);
-                    out_stream.write(msg, 0, Arrlength);
-                }
-                i = i+1;
-                data_out.writeUTF("1");
-            }
-            */
+            for(int i =0;i<10000;i++)new display(image).execute("");
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event){
+        this.mDetector.onTouchEvent(event);
+        float x=event.getX(),y=event.getY(),x1=0,y1=0;
+        if(event.getAction() == MotionEvent.ACTION_DOWN){
+            x = event.getX();
+            y = event.getY();
+        }
+        else if(event.getAction() == MotionEvent.ACTION_MOVE){
+            x1 = event.getX()-x;y1 = event.getY()-y;
+            if (x1 != 0 && y1 != 0) {
+                try {
+                    String inp = "";
+                    inp = inp + "2 " + Integer.toString(Math.round(x1)) + " " + Integer.toString(Math.round(y1));
+                    data_out.writeUTF(inp);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        else if (event.getAction() == MotionEvent.ACTION_UP){
+            if(x1 == 0 && y1 ==0 ) {
+                if (!(x == 0 && y == 0)) {
+                    try {
+                        String inp = "";
+                        inp = inp + "1 " + Integer.toString(Math.round(x)) + " " + Integer.toString(Math.round(y));
+                        data_out.writeUTF(inp);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onDown(MotionEvent event) {
+
+        return true;
+    }
+
+    @Override
+    public boolean onFling(MotionEvent event1, MotionEvent event2,
+                           float velocityX, float velocityY) {
+
+        return true;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent event) {
+
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent event1, MotionEvent event2, float distanceX,
+                            float distanceY) {
+
+        return true;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent event) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent event) {
+
+        return true;
+    }
+
+    @Override
+    public boolean onDoubleTap(MotionEvent event) {
+
+        return true;
+    }
+
+    @Override
+    public boolean onDoubleTapEvent(MotionEvent event) {
+        float x = event.getX(),y = event.getY();
+        String inp = "3 " + Integer.toString(Math.round(x)) + " " + Integer.toString(Math.round(y));
+        try {
+            data_out.writeUTF(inp);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onSingleTapConfirmed(MotionEvent event) {
+
+        return true;
     }
 }
