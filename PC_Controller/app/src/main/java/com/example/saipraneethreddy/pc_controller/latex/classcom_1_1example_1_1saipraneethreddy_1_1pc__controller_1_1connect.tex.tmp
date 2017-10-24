@@ -1,0 +1,88 @@
+\hypertarget{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect}{}\section{com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect Class Reference}
+\label{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect}\index{com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect@{com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect}}
+
+
+Inheritance diagram for com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect\+:
+% FIG 0
+
+
+Collaboration diagram for com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a67384869cdfdb8b34ab26e604614e802}{on\+Key\+Down} (int keycode, Key\+Event event)
+\item 
+void \hyperlink{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_abc5d360d1db87d264157434537ed2cd8}{on\+Click} (View v)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a430542800d0cbc307d3236ba1bece19c}{on\+Create} (Bundle saved\+Instance\+State)
+\end{DoxyCompactItemize}
+\subsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Button \hyperlink{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_afb13f75c9a77fad9ed4a7e8a75e7020b}{bt\+\_\+wifi}
+\item 
+Button \hyperlink{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a79a72a821e1f40ab8cdbdaa42f4d7bfa}{bt\+\_\+bluetooth}
+\item 
+Button \hyperlink{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_ae7da7c91ef63f77ed097dfea5d66027f}{bt\+\_\+connect}
+\item 
+Button \hyperlink{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a281e0ef9778e547feffa39095bd762c3}{bt\+\_\+b\+\_\+connect}
+\item 
+String \hyperlink{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a359fcd89c7eedd2957afc81697eebae5}{ip}
+\item 
+Edit\+Text \hyperlink{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a82861db64d5c301cc1ea621b8494ba5b}{inputip}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}!on\+Click@{on\+Click}}
+\index{on\+Click@{on\+Click}!com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}}
+\subsubsection[{\texorpdfstring{on\+Click(\+View v)}{onClick(View v)}}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect.\+on\+Click (
+\begin{DoxyParamCaption}
+\item[{View}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_abc5d360d1db87d264157434537ed2cd8}{}\label{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_abc5d360d1db87d264157434537ed2cd8}
+\index{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}!on\+Create@{on\+Create}}
+\index{on\+Create@{on\+Create}!com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}}
+\subsubsection[{\texorpdfstring{on\+Create(\+Bundle saved\+Instance\+State)}{onCreate(Bundle savedInstanceState)}}]{\setlength{\rightskip}{0pt plus 5cm}void com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect.\+on\+Create (
+\begin{DoxyParamCaption}
+\item[{Bundle}]{saved\+Instance\+State}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a430542800d0cbc307d3236ba1bece19c}{}\label{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a430542800d0cbc307d3236ba1bece19c}
+\index{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}!on\+Key\+Down@{on\+Key\+Down}}
+\index{on\+Key\+Down@{on\+Key\+Down}!com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}}
+\subsubsection[{\texorpdfstring{on\+Key\+Down(int keycode, Key\+Event event)}{onKeyDown(int keycode, KeyEvent event)}}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect.\+on\+Key\+Down (
+\begin{DoxyParamCaption}
+\item[{int}]{keycode, }
+\item[{Key\+Event}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a67384869cdfdb8b34ab26e604614e802}{}\label{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a67384869cdfdb8b34ab26e604614e802}
+
+
+\subsection{Member Data Documentation}
+\index{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}!bt\+\_\+b\+\_\+connect@{bt\+\_\+b\+\_\+connect}}
+\index{bt\+\_\+b\+\_\+connect@{bt\+\_\+b\+\_\+connect}!com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}}
+\subsubsection[{\texorpdfstring{bt\+\_\+b\+\_\+connect}{bt_b_connect}}]{\setlength{\rightskip}{0pt plus 5cm}Button com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect.\+bt\+\_\+b\+\_\+connect\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a281e0ef9778e547feffa39095bd762c3}{}\label{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a281e0ef9778e547feffa39095bd762c3}
+\index{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}!bt\+\_\+bluetooth@{bt\+\_\+bluetooth}}
+\index{bt\+\_\+bluetooth@{bt\+\_\+bluetooth}!com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}}
+\subsubsection[{\texorpdfstring{bt\+\_\+bluetooth}{bt_bluetooth}}]{\setlength{\rightskip}{0pt plus 5cm}Button com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect.\+bt\+\_\+bluetooth\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a79a72a821e1f40ab8cdbdaa42f4d7bfa}{}\label{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a79a72a821e1f40ab8cdbdaa42f4d7bfa}
+\index{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}!bt\+\_\+connect@{bt\+\_\+connect}}
+\index{bt\+\_\+connect@{bt\+\_\+connect}!com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}}
+\subsubsection[{\texorpdfstring{bt\+\_\+connect}{bt_connect}}]{\setlength{\rightskip}{0pt plus 5cm}Button com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect.\+bt\+\_\+connect\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_ae7da7c91ef63f77ed097dfea5d66027f}{}\label{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_ae7da7c91ef63f77ed097dfea5d66027f}
+\index{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}!bt\+\_\+wifi@{bt\+\_\+wifi}}
+\index{bt\+\_\+wifi@{bt\+\_\+wifi}!com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}}
+\subsubsection[{\texorpdfstring{bt\+\_\+wifi}{bt_wifi}}]{\setlength{\rightskip}{0pt plus 5cm}Button com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect.\+bt\+\_\+wifi\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_afb13f75c9a77fad9ed4a7e8a75e7020b}{}\label{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_afb13f75c9a77fad9ed4a7e8a75e7020b}
+\index{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}!inputip@{inputip}}
+\index{inputip@{inputip}!com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}}
+\subsubsection[{\texorpdfstring{inputip}{inputip}}]{\setlength{\rightskip}{0pt plus 5cm}Edit\+Text com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect.\+inputip\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a82861db64d5c301cc1ea621b8494ba5b}{}\label{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a82861db64d5c301cc1ea621b8494ba5b}
+\index{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}!ip@{ip}}
+\index{ip@{ip}!com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect@{com\+::example\+::saipraneethreddy\+::pc\+\_\+controller\+::connect}}
+\subsubsection[{\texorpdfstring{ip}{ip}}]{\setlength{\rightskip}{0pt plus 5cm}String com.\+example.\+saipraneethreddy.\+pc\+\_\+controller.\+connect.\+ip\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a359fcd89c7eedd2957afc81697eebae5}{}\label{classcom_1_1example_1_1saipraneethreddy_1_1pc__controller_1_1connect_a359fcd89c7eedd2957afc81697eebae5}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{connect_8java}{connect.\+java}\end{DoxyCompactItemize}
