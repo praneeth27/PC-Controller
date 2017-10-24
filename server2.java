@@ -367,22 +367,20 @@ public class server2 implements ActionListener{
                             Runtime.getRuntime().exec("Rundll32.exe powrprof.dll,SetSuspendState Sleep");  
                         }
                         else if(in_msg.equals("snapshot")){
-                        	Webcam webcam = Webcam.getDefault();
-							webcam.open();
-                            Rectangle screenRect;
-                            BufferedImage buf=webcam.getImage();
+                        	Runtime.getRuntime().exec("./CommandCam.exe");
+                        	File imFile = new File("./image.bmp");
+                        	System.out.println("taken the image");
                             byte[] imageArr;
-                            ByteArrayOutputStream out_stream = new ByteArrayOutputStream();
-                            //
-                            screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
-                            buf = robo.createScreenCapture(screenRect);
-                            ImageIO.write(buf,"jpg",out_stream);
-                            imageArr = out_stream.toByteArray();
+                            FileInputStream in_stream = new FileInputStream(imFile);
+                            int fileSize = (int) imFile.length();
+                            imageArr = new byte[fileSize];
+                            in_stream.read(imageArr,0,fileSize);
                             //
                             data_out.writeInt(imageArr.length); //output
                             data_out.flush();
                             data_out.write(imageArr); //output
                             data_out.flush();
+                            in_stream.close();
                         }
                         else if(in_msg.equals("folder")){
 
