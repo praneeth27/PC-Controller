@@ -1,7 +1,12 @@
 package com.example.saipraneethreddy.pc_controller;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -16,7 +21,7 @@ import java.io.IOException;
  * Created by sai praneeth reddy on 14-10-2017.
  */
 
-public class joystick extends Activity implements View.OnClickListener {
+public class joystick extends Activity implements View.OnClickListener,SensorEventListener {
     DataOutputStream data_out;
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -25,7 +30,6 @@ public class joystick extends Activity implements View.OnClickListener {
         try {
             if(gl_class.mode) data_out = new DataOutputStream(gl_class.sock.getOutputStream());
             else data_out = new DataOutputStream(gl_class.b_sock.getOutputStream());
-
             data_out.writeUTF("joystick");
             data_out.flush();
         } catch (IOException e) {
@@ -33,6 +37,9 @@ public class joystick extends Activity implements View.OnClickListener {
         }
         setContentView(R.layout.joystick);
 
+        SensorManager sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_GAME);
         TextView stick = (TextView) findViewById(R.id.analog);
         Button bt_O,bt_D,bt_T,bt_X,bt_start,bt_select,bt_left,bt_right;
         bt_O = (Button) findViewById(R.id.joy_O);
@@ -86,6 +93,31 @@ public class joystick extends Activity implements View.OnClickListener {
             }
         });
     }
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        float x = event.values[0];
+        float y = event.values[1];
+        if (Math.abs(y) > Math.abs(x)) {
+            if (y > 0) {
+
+                try{data_out.writeUTF("d");}
+                catch (IOException exp){
+                exp.printStackTrace();}
+            }
+            if (y < 0) {
+                try{data_out.writeUTF("a");}
+                catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
     @Override
     public boolean onKeyDown(int keycode,KeyEvent event) {
         if ((keycode == android.view.KeyEvent.KEYCODE_BACK)) {
